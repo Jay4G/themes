@@ -1,13 +1,41 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     let countryElement = document.getElementById("geo-country");
     if (!countryElement) return;
 
     let country = countryElement.textContent.trim();
 
-    let inputField = document.querySelector("input[name='item_meta[123]']");
-    if (!inputField) return;
+    // Map country → currency + price
+    let currency = "USD";
+    let price = 10;
 
-    inputField.value = country;
+    if (country === "US") {
+        currency = "USD";
+        price = 10;
+    } else if (country === "GB") {
+        currency = "GBP";
+        price = 8;
+    } else if (country === "AE") {
+        currency = "AED";
+        price = 35;
+    } else if (country === "NG") {
+        currency = "NGN";
+        price = 8000;
+    }
+
+    // Fill Formidable hidden fields
+    let countryInput = document.querySelector("input[name='item_meta[123]']");
+    let currencyInput = document.querySelector("input[name='item_meta[124]']");
+    let priceInput = document.querySelector("input[name='item_meta[125]']");
+
+    if (countryInput) countryInput.value = country;
+    if (currencyInput) currencyInput.value = currency;
+    if (priceInput) priceInput.value = price;
+
+    // Update visible price field (if exists)
+    let displayField = document.getElementById("price-display");
+    if (displayField) {
+        displayField.textContent = "Price: " + currency + " " + price;
+    }
 
 });
