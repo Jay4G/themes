@@ -1,41 +1,70 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // =========================
+    // 1. GET COUNTRY FROM GEOIP
+    // =========================
     let countryElement = document.getElementById("geo-country");
     if (!countryElement) return;
 
     let country = countryElement.textContent.trim();
 
-    // Map country → currency + price
-    let currency = "USD";
-    let price = 10;
+    // =========================
+    // 2. COUNTRY → CURRENCY MAP
+    // =========================
+    let currencyMap = {
+        US: "USD",
+        GB: "GBP",
+        AE: "AED",
+        NG: "NGN"
+    };
 
-    if (country === "US") {
-        currency = "USD";
-        price = 10;
-    } else if (country === "GB") {
-        currency = "GBP";
-        price = 8;
-    } else if (country === "AE") {
-        currency = "AED";
-        price = 35;
-    } else if (country === "NG") {
-        currency = "NGN";
-        price = 8000;
-    }
+    let currency = currencyMap[country] || "USD";
 
-    // Fill Formidable hidden fields
-    let countryInput = document.querySelector("input[name='item_meta[country_field]']");
-    let currencyInput = document.querySelector("input[name='item_meta[currency_field]']");
-    let priceInput = document.querySelector("input[name='item_meta[price_field]']");
+    // =========================
+    // 3. FILL HIDDEN FIELDS
+    // =========================
+    let countryInput = document.querySelector("input[name='item_meta[COUNTRY_ID]']");
+    let currencyInput = document.querySelector("input[name='item_meta[CURRENCY_ID]']");
+    let rangeInput = document.querySelector("input[name='item_meta[RANGE_ID]']");
 
     if (countryInput) countryInput.value = country;
     if (currencyInput) currencyInput.value = currency;
-    if (priceInput) priceInput.value = price;
 
-    // Update visible price field (if exists)
-    let displayField = document.getElementById("price-display");
-    if (displayField) {
-        displayField.textContent = "Price: " + currency + " " + price;
+    // =========================
+    // 4. UPDATE DROPDOWN LABELS
+    // =========================
+    let dropdown = document.querySelector("select[name='item_meta[PRICE_RANGE_ID]']");
+    if (dropdown) {
+
+        let options = dropdown.options;
+
+        for (let i = 0; i < options.length; i++) {
+
+            let baseValue = options[i].value;
+
+            // Skip empty/default option
+            if (!baseValue) continue;
+
+            options[i].text = currency + " " + baseValue;
+            options[i].value = currency + ":" + baseValue;
+        }
+    }
+
+    // =========================
+    // 5. SAVE SELECTED VALUE
+    // =========================
+    if (dropdown && rangeInput) {
+        dropdown.addEventListener("change", function () {
+            rangeInput.value = this.value;
+        });
+    }
+
+    // =========================
+    // 6. OPTIONAL: SHOW FORM ONLY IF COUNTRY EXISTS
+    // =========================
+    let form = document.querySelector("form");
+    if (form) {
+        form.style.opacity = country ? "1" : "0.3";
     }
 
 });
