@@ -12,13 +12,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // 2. COUNTRY → CURRENCY MAP
     // =========================
     let currencyMap = {
-        AF: "NGN",  // or a representative currency
-        AN: "USD",  // fallback (no real economy)
-        AED: "USD",  // or AED / INR / etc depending on your logic
-        EU: "GBP",  // or GBP if you're targeting UK users
-        NA: "USD",
-        OC: "AUD",
-        SA: "BRL"
+        US: "USD",
+        GB: "GBP",
+        AE: "AED",
+        NG: "NGN",
+        CA: "CAD",
+        AU: "AUD",
+        IN: "INR",
+        ZA: "ZAR",
+        KE: "KES",
+        SG: "SGD",
+        JP: "JPY",
+        CN: "CNY",
+        BR: "BRL",
+        MX: "MXN",
+        CH: "CHF",
+        SE: "SEK",
+        NO: "NOK",
+        DK: "DKK",
+        EU: "EUR", // fallback for EU countries
+        IE: "EUR",
+        FR: "EUR",
+        DE: "EUR",
+        IT: "EUR",
+        ES: "EUR",
+        NL: "EUR",
+        BE: "EUR",
+        AT: "EUR",
+        FI: "EUR",
+        PT: "EUR"
     };
 
     let currency = currencyMap[country] || "USD";
