@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         PT: "EUR"
     };
 
-    let currency = currencyMap[country] || "USD";
+    let currency = currencyMap[country] || "NGN";
 
     // =========================
     // 3. FILL HIDDEN FIELDS
@@ -87,9 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // 6. OPTIONAL: SHOW FORM ONLY IF COUNTRY EXISTS
     // =========================
-    let form = document.querySelector("form");
-    if (form) {
-        form.style.opacity = country ? "1" : "0.3";
-    }
+    // let form = document.querySelector("form");
+    // if (form) {
+    //     form.style.opacity = country ? "1" : "0.3";
+    // }
 
 });
