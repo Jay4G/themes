@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // 3. FILL HIDDEN FIELDS
     // =========================
-    let countryInput = document.querySelector("input[name='item_meta[COUNTRY_ID]']");
-    let currencyInput = document.querySelector("input[name='item_meta[CURRENCY_ID]']");
-    let rangeInput = document.querySelector("input[name='item_meta[RANGE_ID]']");
+    let countryInput = document.querySelector("input[name='item_meta[country_field]']");
+    let currencyInput = document.querySelector("input[name='item_meta[currency_field]']");
+    let rangeInput = document.querySelector("input[name='item_meta[range_field]']");
 
     if (countryInput) countryInput.value = country;
     if (currencyInput) currencyInput.value = currency;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // 4. UPDATE DROPDOWN LABELS
     // =========================
-    let dropdown = document.querySelector("select[name='item_meta[PRICE_RANGE_ID]']");
+    let dropdown = document.querySelector("select[name='item_meta[price_range]']");
     if (dropdown) {
 
         let options = dropdown.options;
