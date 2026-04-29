@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let country = countryElement.textContent.trim();
 
-    let inputField = document.querySelector("input[name='item_meta[123]']");
+    let inputField = document.querySelector("input[name='item_meta[4ryez]']");
     if (!inputField) return;
 
     inputField.value = country;
