@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!baseValue) continue;
 
             options[i].text = currency + " " + baseValue;
-            // options[i].value = currency + ":" + baseValue;
         }
     }
 
