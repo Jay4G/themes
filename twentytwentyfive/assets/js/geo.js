@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Fill Formidable hidden fields
-    let countryInput = document.querySelector("input[name='item_meta[123]']");
-    let currencyInput = document.querySelector("input[name='item_meta[124]']");
-    let priceInput = document.querySelector("input[name='item_meta[125]']");
+    let countryInput = document.querySelector("input[name='item_meta[country_field]']");
+    let currencyInput = document.querySelector("input[name='item_meta[currency_field]']");
+    let priceInput = document.querySelector("input[name='item_meta[price_field]']");
 
     if (countryInput) countryInput.value = country;
     if (currencyInput) currencyInput.value = currency;
