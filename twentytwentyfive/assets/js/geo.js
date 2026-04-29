@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    let countryElement = document.querySelector(".geo-country");
+    let countryElement = document.getElementById("geo-country");
     if (!countryElement) return;
 
     let country = countryElement.textContent.trim();
